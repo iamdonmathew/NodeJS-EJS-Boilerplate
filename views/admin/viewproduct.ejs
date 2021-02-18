@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Admin | Dashboard</title>
+</head>
+
+<body>
+    <%- include ('partials/navbar.ejs') %>
+        <div class="center-col">
+            <h1>
+                View Product
+            </h1>
+            <div class="row ">
+                <% if(typeof(products) !='undefined' ) { %>
+                    <% products.forEach(function(product) { %>
+                        <div class="card" style="width: 18rem;">
+                            <img src='/uploads/<%=product.image %>' style="width: 50%"
+                                class="card-img-top mx-auto d-block img-fluid" alt="image">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%=product.productname %>
+                                </h5>
+
+                                <a href="/admin/updateproduct/<%=product._id%>" class="btn btn-primary">Edit</a>
+                                <a href="/admin/deleteproduct/<%=product._id%>" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <h1>There is no products</h1>
+                                <% } %>
+            </div>
+        </div>
+</body>
+
+</html>
