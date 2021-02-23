@@ -21,7 +21,7 @@ npm install
     1. **DATABASE**     _provide URL for accessing [MongoDB](https://www.mongodb.com/3)._
     2. **SESSION_KEY**     _to store session values [Express Session](https://www.npmjs.com/package/express-session)._
 * Thats, it.
-* Start the server
+* Start the server.
 ```bash
 npm start
 ```
